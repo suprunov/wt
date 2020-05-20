@@ -1,7 +1,7 @@
 {
   "name": "webpacktemplate",
   "version": "1.0.0",
-  "description": "My template",
+  "description": "webpack & eslint template",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",
@@ -12,13 +12,13 @@
     "> 1%",
     "last 3 version"
   ],
-  "author": "https://github.com/vedees",
+  "author": "https://github.com/suprunov",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vedees/webpack-template.git"
+    "url": "git+https://github.com/suprunov/wt.git"
   },
   "bugs": {
-    "url": "https://github.com/vedees/webpack-template/issues"
+    "url": "https://github.com/suprunov/wt/issues"
   },
   "keywords": [
     "webpack",
