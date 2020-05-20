@@ -6,13 +6,13 @@ const fs = require("fs");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { VueLoaderPlugin } = require("vue-loader");
+
 
 // Main const. Feel free to change it
 const PATHS = {
 	src: path.join(__dirname, "../src"),
 	dist: path.join(__dirname, "../public"),
-	assets: "static/"
+	assets: "assets/"
 };
 
 // Pages const for HtmlWebpackPlugin
@@ -54,16 +54,6 @@ module.exports = {
 				test: /\.js$/,
 				loader: "babel-loader",
 				exclude: "/node_modules/"
-			},
-			{
-				// Vue
-				test: /\.vue$/,
-				loader: "vue-loader",
-				options: {
-					loader: {
-						scss: "vue-style-loader!css-loader!sass-loader"
-					}
-				}
 			},
 			{
 				// Fonts
@@ -127,19 +117,17 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			"~": PATHS.src,
-			vue$: "vue/dist/vue.js"
+
 		}
 	},
 	plugins: [
-		new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
 			filename: `${PATHS.assets}css/[name].[contenthash].css`
 		}),
 		new CopyWebpackPlugin([
 			{ from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
 			{ from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
-			{ from: `${PATHS.src}/static`, to: "" }
+			{ from: `${PATHS.src}/assets`, to: "" }
 		]),
 
 		/*
